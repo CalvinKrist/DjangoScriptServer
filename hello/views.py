@@ -2,15 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Greeting
 
+def load_html(html_file):
+    with open(html_file) as file_obj:
+        file = file_obj.read()
+
+    return file
 def index(request):
-    return HttpResponse('Hello from Python!')
-
-
-def db(request):
-
-    greeting = Greeting()
-    greeting.save()
-
-    greetings = Greeting.objects.all()
-
-    return render(request, "db.html", {"greetings": greetings})
+    return HttpResponse(load_html('index.html'))
