@@ -1,45 +1,19 @@
-# Python: Getting Started
+# The Idea
 
-A barebones Django app, which can easily be deployed to Heroku.
+At some point, when your friends learn you are studying cybersecurity theu innevitably ask "Can you hack my computer?" to which the answer is "Sure, give me a couple of weeks". So our goal is to infect their computers ahead of time so when they ask that question you can say "Sure give me a few minutes" and look cool AF.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+How do we accomplish this?
 
-## Running Locally
+1. Create a bot that can check for commands, execute the commands, and return the result, all without making our friends' machines vulnerable to real bad guys.
+2. Create a command and control (C&C) server to manage the bots, send them commands, and recieve the results of the commands. This is what we use to look cool when we "hack" them.
+3. Get physical access to their computer. Install a script on the computer that installs a bot. Yeah, we're not good enough at this hacking business to do it all without physical access.  
+4. Seem like a genius hacker.
 
-Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+You should note, this does not need to be nearly as complicated as a real botnet. We don't need P2P connections, persistance hidden from anti-viruses, the ability to spread to other machines, or the ability to exfiltrate additional information. Of course, it would be a fantastic learning opportunity of we developed our bot application to be well hidden and persistant.
 
-```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
+# Useful Readings
 
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+(What is a botnet)[https://encyclopedia.kaspersky.com/glossary/botnet/].
+(Here is an open source simple botnet)[https://github.com/TreeHacks/botnet-hackpack].
+(The Mirai Botnet source code)[https://github.com/jgamblin/Mirai-Source-Code].
+(What the Mirai BotNet is if you'd forgotten . . .)[https://krebsonsecurity.com/tag/mirai-botnet/]
