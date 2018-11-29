@@ -7,5 +7,6 @@ def load_html(html_file):
         file = file_obj.read()
 
     return file
+
 def index(request):
     return HttpResponse(load_html('index.html'))

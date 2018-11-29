@@ -32,6 +32,7 @@ Persistence is the ability of malware to stay on your machine even when restarte
 ## PowerShell
 (PowerShell basics)[https://docs.microsoft.com/en-us/previous-versions/system-center/developer/dn529004(v=cmsdk.12)]
 (A stealthy persistance mechanism using PowerShell and WMI)[https://www.fireeye.com/blog/threat-research/2017/03/dissecting_one_ofap.html]
+(More hands-one examples of using WMI for persistence.)[https://www.blackhat.com/docs/us-15/materials/us-15-Graeber-Abusing-Windows-Management-Instrumentation-WMI-To-Build-A-Persistent%20Asynchronous-And-Fileless-Backdoor-wp.pdf]
 
 ## CPP
 (A library for interacting with REST APIs in CPP)[https://github.com/Microsoft/cpprestsdk]
