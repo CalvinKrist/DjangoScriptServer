@@ -34,6 +34,9 @@ Design:
 		
 Rest API:
 
+	/rest/client
+		-GET enumerates all clients
+	
 	/rest/client/<MAC>
 		-PUT creates a client with MAC identifier
 		-GET gets command list for user with MAC identifier
