@@ -19,7 +19,9 @@ def clients(request):
     data = Client.objects.values()
     data = [entry for entry in data]
 
-    return HttpResponse(data)
+    response = {"clients" : data}
+
+    return HttpResponse(json.dumps(response))
 
 @api_view(['GET', 'POST', 'PUT'])
 def client(request, mac_address):
