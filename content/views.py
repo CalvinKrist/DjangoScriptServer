@@ -31,4 +31,8 @@ def client(request, mac_address):
         client.save()
         return HttpResponse()
 
+    if request.method == 'GET':
+        client = Client.objects.filter(mac=mac_address)
+        return HttpResponse(client)
+
     return HttpResponse(mac_address)
