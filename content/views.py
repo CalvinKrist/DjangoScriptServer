@@ -15,8 +15,8 @@ def index(request):
 
 @api_view(['GET'])
 def clients(request):
-    data = serializers.serialize("json", Client.objects.all())
-    return HttpResponse(data)
+    data    = serializers.serialize("json", Client.objects.all())
+    return HttpResponse(data[0])
 
 @api_view(['GET', 'POST', 'PUT'])
 def client(request, mac_address):
