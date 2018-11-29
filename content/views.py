@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Client
 from rest_framework.decorators import api_view
+from django.core import serializers
 
 def load_html(html_file):
     with open(html_file) as file_obj:
@@ -14,8 +15,8 @@ def index(request):
 
 @api_view(['GET'])
 def clients(request):
-    clients = Client.objects
-    return HttpResponse("client list...")
+    data = serializers.serialize("json", Client.objects.all())
+    return HttpResponse(data)
 
 @api_view(['GET', 'POST', 'PUT'])
 def client(request, mac_address):
