@@ -4,6 +4,7 @@ from .models import Client
 from rest_framework.decorators import api_view
 from django.core import serializers
 import json
+from django.forms.models import model_to_dict
 
 def load_html(html_file):
     with open(html_file) as file_obj:
@@ -32,7 +33,17 @@ def client(request, mac_address):
         return HttpResponse()
 
     if request.method == 'GET':
-        client = Client.objects.filter(mac=mac_address)
-        return HttpResponse(client)
+        # Get all Client objects with mac=mac_address. Include only 'script' and 'script_id' variables
+        filter_results = list(Client.objects.filter(mac=mac_address).values('script', 'script_id'))
+
+        if len(filter_results):
+            # Turn the list of Client objects into a dict
+            results_dict = json.loads(json.dumps({"clients":filter_results}))
+
+            # Get and return first result as a string
+            first_result = results_dict['clients'][0]
+            return HttpResponse(json.dumps(first_result))
+        else:
+            return HttpResponse()
 
     return HttpResponse(mac_address)
