@@ -34,7 +34,7 @@ Design:
 		
 Rest API:
 
-	/rest/client
+	/rest/clients
 		-GET enumerates all clients
 	
 	/rest/client/<MAC>
