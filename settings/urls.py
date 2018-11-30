@@ -1,10 +1,11 @@
 from django.urls import path, include, re_path
-
+from django.conf.urls import url
+import settings
 from django.contrib import admin
+import content.views as views
+
 
 admin.autodiscover()
-
-import content.views as views
 
 # To add a new path, first import the app:
 # import blog
@@ -16,6 +17,7 @@ import content.views as views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    url(r'^staticfiles/website/([\s\S]*)$', views.web_resource),
     path('rest/clients', views.clients),
     path('rest/clients/', views.clients),
     path('rest/client/<mac_address>', views.client),

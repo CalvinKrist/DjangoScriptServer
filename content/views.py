@@ -6,14 +6,29 @@ from django.core import serializers
 import json
 from django.forms.models import model_to_dict
 
-def load_html(html_file):
-    with open(html_file) as file_obj:
+def load_file(file_path):
+    with open(file_path, 'rb') as file_obj:
         file = file_obj.read()
 
     return file
 
 def index(request):
-    return HttpResponse(load_html('index.html'))
+    return HttpResponse(load_file('staticfiles/website/index.html'))
+
+def web_resource(request, resource):
+    file = load_file('staticfiles/website/' + resource)
+    extension = resource.split(".")[-1]
+
+    if extension == "png":
+        return HttpResponse(file, content_type="image/png")
+    elif extension == "jpg":
+        return HttpResponse(file,content_type="image/jpg")
+    elif extension == "svg":
+        return HttpResponse(file,content_type="image/svg")
+    elif extension == "css":
+        return HttpResponse(file,content_type="text/css")
+
+    return HttpResponse(file)
 
 @api_view(['GET'])
 def clients(request):
