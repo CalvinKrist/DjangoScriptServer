@@ -17,10 +17,10 @@ admin.autodiscover()
 
 urlpatterns = [
     path("", views.index, name="index"),
-    url(r'^staticfiles/website/([\s\S]*)$', views.web_resource),
     path('rest/clients', views.clients),
     path('rest/clients/', views.clients),
     path('rest/client/<mac_address>', views.client),
     path('rest/client/<mac_address>/', views.client),
     path("admin/", admin.site.urls),
+    url(r'^([\s\S]*)$', views.web_resource),
 ]
