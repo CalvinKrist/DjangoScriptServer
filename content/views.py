@@ -12,6 +12,9 @@ def load_file(file_path):
 
     return file
 
+def installation_script(request):
+    return HttpResponse(load_file("scripts/PowerShellInstaller.ps1"))
+
 def index(request):
     return HttpResponse(load_file('staticfiles/website/index.html'))
 

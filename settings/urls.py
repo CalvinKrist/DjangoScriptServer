@@ -21,6 +21,7 @@ urlpatterns = [
     path('rest/clients/', views.clients),
     path('rest/client/<mac_address>', views.client),
     path('rest/client/<mac_address>/', views.client),
+    path('rest/ps1installationscript/', views.installation_script),
     path("admin/", admin.site.urls),
     url(r'^([\s\S]*)$', views.web_resource),
 ]
