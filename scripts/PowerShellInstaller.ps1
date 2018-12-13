@@ -1,1 +1,1 @@
-hello test
+mkdir C:/SUCCESS
