@@ -1,15 +1,14 @@
-# The Idea
+# Progress
 
-At some point, when your friends learn you are studying cybersecurity they inevitably ask "Can you hack my computer?" to which the answer is "Sure, give me a couple of weeks". So our goal is to infect their computers ahead of time so when they ask that question you can say "Sure give me a few minutes" and look cool AF.
+## Scripts
 
-How do we accomplish this?
+### (scripts/PowerShellInstaller)[PowerShellInstaller]
 
-1. Create a bot that can check for commands, execute the commands, and return the result, all without making our friends' machines vulnerable to real bad guys.
-2. Create a command and control (C&C) server to manage the bots, send them commands, and recieve the results of the commands. This is what we use to look cool when we "hack" them.
-3. Get physical access to their computer. Install a script on the computer that installs a bot. Yeah, we're not good enough at this hacking business to do it all without physical access.  
-4. Seem like a genius hacker.
+Installs the Client on the host machine such that it is hard to uninstall and will periodically run.
 
-You should note, this does not need to be nearly as complicated as a real botnet. We don't need P2P connections, persistance hidden from anti-viruses, the ability to spread to other machines, or the ability to exfiltrate additional information. Of course, it would be a fantastic learning opportunity of we developed our bot application to be well hidden and persistent.
+### (scripts/USBInstaller)[USBInstaller.txt]
+
+A Ducky script that is then loaded onto a (MalDuino Lite)[https://malduino.com/wiki/doku.php?id=start] for physical installation. It downloads the PowerShellInstaller script and then runs it in a hidden Powershell window with administrator permissions. Required administrator access for the script to work.
 
 # Useful Readings
 
