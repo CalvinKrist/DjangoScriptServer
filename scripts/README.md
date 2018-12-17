@@ -1,6 +1,6 @@
 # Scripts
 
-## [PowerShellInstaller](PowerShellInstaller)
+## [PowerShellInstaller](PowerShellInstaller.ps1)
 
 Installs the Client on the host machine such that it is hard to uninstall and will periodically run.
 
