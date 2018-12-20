@@ -1,3 +1,5 @@
+DELAY 5000
+
 REM Open Command Prompt
 GUI r
 DELAY 1000
