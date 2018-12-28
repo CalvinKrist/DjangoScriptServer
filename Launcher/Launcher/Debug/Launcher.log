@@ -1,4 +1,0 @@
-﻿  Launcher.cpp
-d:\djangoscriptserver\launcher\packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.9.1\build\native\include\cpprest\asyncrt_utils.h(491): error C4596: 'system_type_to_datetime': illegal qualified name in member declaration
-d:\djangoscriptserver\launcher\packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.9.1\build\native\include\cpprest\streams.h(888): error C7510: 'int_type': use of dependent type name must be prefixed with 'typename'
-  d:\djangoscriptserver\launcher\packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.9.1\build\native\include\cpprest\streams.h(1121): note: see reference to class template instantiation 'Concurrency::streams::basic_istream<_CharType>' being compiled
