@@ -16,12 +16,12 @@ admin.autodiscover()
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path('rest/clients', views.clients),
-    path('rest/clients/', views.clients),
-    path('rest/client/<mac_address>', views.client),
-    path('rest/client/<mac_address>/', views.client),
-    path('rest/ps1installationscript/', views.installation_script),
+    path("", views.get_index, name="index"),
+    path('rest/clients', views.get_clients),
+    path('rest/clients/', views.get_clients),
+    path('rest/client/<mac_address>', views.get_client),
+    path('rest/client/<mac_address>/', views.get_client),
+    path('rest/ps1installationscript/', views.get_installation_script),
     path("admin/", admin.site.urls),
-    url(r'^([\s\S]*)$', views.web_resource),
+    url(r'^([\s\S]*)$', views.get_web_resource),
 ]

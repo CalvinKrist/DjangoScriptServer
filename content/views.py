@@ -6,19 +6,22 @@ from django.core import serializers
 import json
 from django.forms.models import model_to_dict
 
+
 def load_file(file_path):
     with open(file_path, 'rb') as file_obj:
         file = file_obj.read()
-
     return file
 
-def installation_script(request):
+
+def get_installation_script(request):
     return HttpResponse(load_file("scripts/PowerShellInstaller.ps1"))
 
-def index(request):
+
+def get_index(request):
     return HttpResponse(load_file('staticfiles/website/index.html'))
 
-def web_resource(request, resource):
+
+def get_web_resource(request, resource):
     file = load_file('staticfiles/website/' + resource)
     extension = resource.split(".")[-1]
 
@@ -33,8 +36,9 @@ def web_resource(request, resource):
 
     return HttpResponse(file)
 
+
 @api_view(['GET'])
-def clients(request):
+def get_clients(request):
     data = Client.objects.values()
     data = [entry for entry in data]
 
@@ -42,8 +46,9 @@ def clients(request):
 
     return HttpResponse(json.dumps(response))
 
+
 @api_view(['GET', 'POST', 'PUT'])
-def client(request, mac_address):
+def get_client(request, mac_address):
     # Create client and return blank response
     if request.method == 'PUT':
         client = Client(mac=mac_address, script="net user", script_id=0)
