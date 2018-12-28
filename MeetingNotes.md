@@ -31,21 +31,21 @@ Server:
 Rest API:
 
 	/rest/clients
-		-GET enumerates all clients
+		-GET enumerates all clients by name. No other information is given.
 	
-	/rest/client/<MAC>
-		-PUT creates a client with MAC identifier
-		-GET gets command list for user with MAC identifier
-		-POST updates command results for user with MAC identifier
+	/rest/client
+		-POST creates a client. Requires MAC address and public key.
+		-GET gets command list for a user encrypted with that user's public key. Requires MAC address.
+		-PUT updates command results for a user. Requires MAC address. Encrypted with user's private key followed by server's public key.
 		
-	/rest/versions 
-		-GET enumerates all versions
+	/rest/version 
+		-GET returns latest version number
 		
-	/rest/versions/latest 
+	/rest/version/code 
 		-GET returns the code of the latest version
 		
 	/rest/publickey
-		-GET returns public RSA key
+		-GET returns public RSA key of server
 		
 DAVID STUFF TO DO:	
 
