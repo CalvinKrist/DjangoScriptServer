@@ -34,18 +34,18 @@ Rest API:
 		-GET enumerates all clients by name. No other information is given.
 	
 	/rest/client
-		-PUT creates a client. Requires MAC address and public key.
-		-GET gets command list for a user. Requires MAC address and public key.
-		-POST updates command results for a user. Requires MAC address and public key.
+		-POST creates a client. Requires MAC address and public key.
+		-GET gets command list for a user encrypted with that user's public key. Requires MAC address.
+		-PUT updates command results for a user. Requires MAC address. Encrypted with user's private key followed by server's public key.
 		
-	/rest/versions 
-		-GET enumerates all versions
+	/rest/version 
+		-GET returns latest version number
 		
-	/rest/versions/latest 
+	/rest/version/latest 
 		-GET returns the code of the latest version
 		
 	/rest/publickey
-		-GET returns public RSA key
+		-GET returns public RSA key of server
 		
 DAVID STUFF TO DO:	
 
