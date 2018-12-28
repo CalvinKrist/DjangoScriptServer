@@ -41,7 +41,7 @@ Rest API:
 	/rest/version 
 		-GET returns latest version number
 		
-	/rest/version/latest 
+	/rest/version/code 
 		-GET returns the code of the latest version
 		
 	/rest/publickey
